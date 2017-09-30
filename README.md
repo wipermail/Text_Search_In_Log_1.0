@@ -4,7 +4,7 @@
 
 Content
 ---------------------
-   
+ * News
  * Headnote
  * Requirements
  * Installation
@@ -12,6 +12,10 @@ Content
  * Troubleshooting
  * FAQ
  
+ HEADNOTE
+------------
+ Add multithreading for search.
+
  HEADNOTE
 ------------
  The program is derived from the study and development of the Java-based JavaFX component.
