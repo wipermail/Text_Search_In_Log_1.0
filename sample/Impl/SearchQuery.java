@@ -52,8 +52,6 @@ public class SearchQuery implements ISearchQuery {
                 //Если file является директорией задим в него через рекурсию
                 if (file !=null && file.isDirectory()){
                     rootItem.getChildren().addAll(createNode(file));
-                }else if (file == null){ //если file пустой возращаем корневую ветку
-                    return rootItem;
                 }else { //Иначе добавляю в корень дочернюю ветку
                     String is = isExtension(fileTreeItem);
                     System.out.println(is + " " + EXTENCION);
@@ -63,7 +61,6 @@ public class SearchQuery implements ISearchQuery {
                             rootItem.getChildren().add(fileTreeItem);
                         }
                     }
-//                    System.out.println(Files.probeContentType(fileTreeItem.getValue().toPath()).toString());
                     // Обнюляю Дочернюю ветку из памяти
                     fileTreeItem = null;
                 }
@@ -94,8 +91,8 @@ public class SearchQuery implements ISearchQuery {
     public TreeItem<File> startSearch(File path, String searchText, String extencion) throws IOException {
         SEARCHTEXT = searchText;
         EXTENCION = extencion;
-        TreeItem<File> root = createNode(path);
-        return root;
+//        TreeItem<File> root = ;
+        return createNode(path);
     }
 
     // Проверка рассширения файла

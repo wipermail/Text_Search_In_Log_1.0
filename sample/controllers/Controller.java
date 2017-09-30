@@ -1,6 +1,7 @@
 package sample.controllers;
 
 import javafx.collections.FXCollections;
+import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -114,24 +115,36 @@ public class Controller implements Initializable {
 
     // Вызов поиска по нажатию кнопки с указанными параметрами, если данные верны
     public void clickSearchButton(ActionEvent actionEvent) throws InterruptedException, IOException {
-        searchQueryInput(actionEvent);
-        // Если поисковый запрос не пуст
-        if (!searchText.isEmpty()){
-            zaprosTest.setText("Поисковый запрос введен");
-            // Путь указан
-            if (!(path == null)){
-                zaprosTest.setText(path.toString());
-                // Вызываю метод для поиска и отрисовки дерева
-                treeViewMy.setRoot(searchQuery.startSearch(path, searchText, EXTENCION[getChoiseBoxI()]));
-                treeViewMy.setShowRoot(true);
-                //Обнуление внутренних переменных
-                searchQuery.destroy();
-            }else {
-                zaprosTest.setText("Выберите папку");
+
+        Task task = new Task<TreeItem<File>>() {
+            TreeItem<File> tempTreeItem = null;
+            @Override
+            protected TreeItem<File> call() throws Exception {
+                for (int i = 0; i < 1; i++){
+                    // Если поисковый запрос не пуст
+                    if ((!searchText.isEmpty())&&(!(path == null))){
+                        // Путь указан
+                        // Вызываю метод для поиска и отрисовки дерева
+                        tempTreeItem = searchQuery.startSearch(path, searchText, EXTENCION[getChoiseBoxI()]);
+                        //Обнуление внутренних переменных
+                        searchQuery.destroy();
+                    }
+                    if (isCancelled()){
+                        break;
+                    }
+                }
+                return tempTreeItem;
             }
-        } else {
-            zaprosTest.setText("Введите поисковый запрос!");
-        }
+
+            @Override
+            protected void succeeded() {
+                treeViewMy.setRoot(tempTreeItem);
+            }
+        };
+
+        searchQueryInput(actionEvent);
+        new Thread(task).start();
+
     }
 
     // Обработчики кнопок для управления текстовым окном
