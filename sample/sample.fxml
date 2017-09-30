@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.layout.*?>
+
+<GridPane maxHeight="568.0" maxWidth="771.0" minHeight="483.0" minWidth="552.0" nodeOrientation="LEFT_TO_RIGHT" prefHeight="568.0" prefWidth="771.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.Controller">
+  <columnConstraints>
+    <ColumnConstraints hgrow="SOMETIMES" maxWidth="295.0" minWidth="10.0" prefWidth="120.0" />
+    <ColumnConstraints hgrow="SOMETIMES" maxWidth="475.0" minWidth="10.0" prefWidth="442.0" />
+  </columnConstraints>
+  <rowConstraints>
+    <RowConstraints maxHeight="127.0" minHeight="10.0" prefHeight="63.0" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="381.0" minHeight="10.0" prefHeight="370.0" vgrow="SOMETIMES" />
+    <RowConstraints maxHeight="59.0" minHeight="10.0" prefHeight="50.0" vgrow="SOMETIMES" />
+  </rowConstraints>
+   <children>
+      <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="200.0" prefWidth="200.0" GridPane.rowIndex="1" GridPane.rowSpan="2">
+         <children>
+            <VBox maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="427.0" prefWidth="122.0" style="-fx-background-color: green;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <TreeView fx:id="treeViewMy" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="429.0" prefWidth="122.0" VBox.vgrow="ALWAYS" />
+               </children>
+            </VBox>
+         </children>
+      </AnchorPane>
+      <AnchorPane minHeight="-Infinity" minWidth="-Infinity" prefHeight="68.0" prefWidth="115.0">
+         <children>
+            <Label fx:id="resultLabel" alignment="CENTER" minHeight="-Infinity" minWidth="-Infinity" prefHeight="17.0" prefWidth="56.0" text="Результат:" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+         </children>
+         <GridPane.margin>
+            <Insets />
+         </GridPane.margin>
+      </AnchorPane>
+      <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="81.0" prefWidth="475.0" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">
+         <children>
+            <Button fx:id="searchButton" layoutX="359.0" mnemonicParsing="false" onAction="#clickSearchButton" prefHeight="25.0" prefWidth="36.0" AnchorPane.rightAnchor="30.0" />
+            <TextField fx:id="inputSearchQuery" layoutX="114.0" onAction="#searchQueryInput" prefHeight="25.0" prefWidth="182.0" promptText="Введите поисковый запрос..." AnchorPane.leftAnchor="150.0" AnchorPane.rightAnchor="150.0" />
+            <Button fx:id="onFolder" layoutX="14.0" mnemonicParsing="false" onAction="#onFolder" prefHeight="25.0" prefWidth="110.0" text="Выбрать папку" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="350.0" />
+            <ChoiceBox fx:id="choiseBoxI" layoutX="325.0" prefHeight="25.0" prefWidth="49.0" AnchorPane.rightAnchor="80.0" />
+         </children>
+         <GridPane.margin>
+            <Insets bottom="50.0" top="50.0" />
+         </GridPane.margin>
+      </AnchorPane>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="2" GridPane.vgrow="ALWAYS">
+         <children>
+            <Button fx:id="goBack" layoutX="185.0" mnemonicParsing="false" onAction="#goBack" text="Назад" AnchorPane.rightAnchor="185.0" />
+            <Button fx:id="goNext" layoutX="253.0" mnemonicParsing="false" onAction="#goNext" text="Вперед" AnchorPane.rightAnchor="110.0" />
+            <Button fx:id="onSelectedAll" layoutX="329.0" mnemonicParsing="false" onAction="#onSelectedAll" text="Выделить все" AnchorPane.rightAnchor="0.0" />
+            <Label fx:id="zaprosTest" layoutX="36.0" layoutY="4.0" text="zapros" />
+         </children>
+         <GridPane.margin>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+         </GridPane.margin>
+      </AnchorPane>
+      <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="370.0" prefWidth="549.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
+         <children>
+            <TabPane fx:id="tabPaneMy" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="370.0" prefWidth="475.0" tabClosingPolicy="UNAVAILABLE" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+         </children></AnchorPane>
+   </children>
+</GridPane>
