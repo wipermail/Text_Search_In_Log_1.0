@@ -1,6 +1,5 @@
 # Text_Search_In_Log_1.0
 
-# Text_Search_In_Log
 
 Content
 ---------------------
@@ -12,7 +11,7 @@ Content
  * Troubleshooting
  * FAQ
  
- HEADNOTE
+ NEWS
 ------------
  Add multithreading for search.
 
